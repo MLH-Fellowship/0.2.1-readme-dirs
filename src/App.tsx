@@ -7,6 +7,7 @@ const App: React.FC = () => <Input />;
 
 const Input: React.FC = () => {
   const [url, setUrl] = useState('');
+  const [markdownStrings, setMarkdownStrings] = useState(['']);
 
   const handleChange = event => {
     event.preventDefault();
@@ -15,7 +16,6 @@ const Input: React.FC = () => {
 
   const handleKeyPressed = async event => {
     if (event.key === 'Enter') {
-
       // Expecting a URL like 'github.com/${owner}/${repo}'
       let pathArray = url.split('/');
       let owner = pathArray[1];
@@ -28,13 +28,13 @@ const Input: React.FC = () => {
     let response = await fetch(`https://api.github.com/repos/${owner}/${repo}/commits/master`).then(res => res.json());
     let treeSHA = response["commit"]["tree"]["sha"];
     let treeRes = await fetch(`https://api.github.com/repos/${owner}/${repo}/git/trees/${treeSHA}?recursive=true`).then(res => res.json());
-    generateTree(ripOutPaths(treeRes as GithubAPIResponseBody));
+    setMarkdownStrings(generateTree(ripOutPaths(treeRes as GithubAPIResponseBody)));
   }
 
   return (
     <Container>
       <h1>SWEGGG</h1>
-      <input type="text" value={url} onChange={handleChange} />
+      <input placeholder="Enter a Github URL" type="text" value={url} onChange={handleChange} onKeyDown={handleKeyPressed}/>
         <MarkDownDisplay>
             <MarkDownTextDisplay>
                 <MarkDownTextContainerLight>
