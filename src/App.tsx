@@ -13,6 +13,7 @@ const Input: React.FC = () => {
 
   const handleKeyPressed = async event => {
     if (event.key === 'Enter') {
+
       // Expecting a URL like 'github.com/${owner}/${repo}'
       let pathArray = url.split('/');
       let owner = pathArray[1];
@@ -24,8 +25,8 @@ const Input: React.FC = () => {
   const makeRequest = async (owner: String, repo: String) => {
     let response = await fetch(`https://api.github.com/repos/${owner}/${repo}/commits/master`).then(res => res.json());
     let treeSHA = response["commit"]["tree"]["sha"];
-    let tree = await fetch(`https://api.github.com/repos/${owner}/${repo}/git/trees/${treeSHA}?recursive=true`)
-    tree = await tree.json();
+    let treeRes = await fetch(`https://api.github.com/repos/${owner}/${repo}/git/trees/${treeSHA}?recursive=true`).then(res => res.json());
+    console.log(ripOutPaths(treeRes as GithubAPIResponseBody));
   }
 
   return (
