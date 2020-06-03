@@ -4,15 +4,43 @@ import styled from 'styled-components';
 const App: React.FC = () => <Input />;
 
 const Input: React.FC = () => {
+<<<<<<< HEAD
   const [url, setUrl] = useState(
     'Enter a Github Repo',
   );
 
   const handleChange = (event) => setUrl(event.target.value);
+=======
+  const [url, setUrl] = useState('');
+
+  const handleChange = event => {
+    event.preventDefault();
+    setUrl(event.target.value);
+  }
+
+  const handleKeyPressed = async event => {
+    if (event.key === 'Enter') {
+      // Expecting a URL like 'github.com/${owner}/${repo}'
+      let pathArray = url.split('/');
+      let owner = pathArray[1];
+      let repo = pathArray[2];
+      await makeRequest(owner, repo);
+    }
+  }
+
+  const makeRequest = async (owner: String, repo: String) => {
+    let response = await fetch(`https://api.github.com/repos/${owner}/${repo}/commits/master`).then(res => res.json());
+    let treeSHA = response["commit"]["tree"]["sha"];
+    let tree = await fetch(`https://api.github.com/repos/${owner}/${repo}/git/trees/${treeSHA}?recursive=true`)
+    tree = await tree.json();
+    // console.log(tree);
+  }
+>>>>>>> Add request calls
 
   return (
     <Container>
       <h1>SWEGGG</h1>
+<<<<<<< HEAD
       <input type="text" value={url} onChange={handleChange} />
         <MarkDownDisplay>
             <MarkDownTextDisplay>
@@ -30,6 +58,10 @@ const Input: React.FC = () => {
             </Copy>
         </MarkDownDisplay>
     </Container>
+=======
+      <input placeholder="Enter a Github URL" type="text" value={url} onChange={handleChange} onKeyDown={handleKeyPressed}/>
+    </div>
+>>>>>>> Add request calls
   );
 };
 
