@@ -4,13 +4,6 @@ import styled from 'styled-components';
 const App: React.FC = () => <Input />;
 
 const Input: React.FC = () => {
-<<<<<<< HEAD
-  const [url, setUrl] = useState(
-    'Enter a Github Repo',
-  );
-
-  const handleChange = (event) => setUrl(event.target.value);
-=======
   const [url, setUrl] = useState('');
 
   const handleChange = event => {
@@ -33,14 +26,11 @@ const Input: React.FC = () => {
     let treeSHA = response["commit"]["tree"]["sha"];
     let tree = await fetch(`https://api.github.com/repos/${owner}/${repo}/git/trees/${treeSHA}?recursive=true`)
     tree = await tree.json();
-    // console.log(tree);
   }
->>>>>>> Add request calls
 
   return (
     <Container>
       <h1>SWEGGG</h1>
-<<<<<<< HEAD
       <input type="text" value={url} onChange={handleChange} />
         <MarkDownDisplay>
             <MarkDownTextDisplay>
@@ -58,10 +48,6 @@ const Input: React.FC = () => {
             </Copy>
         </MarkDownDisplay>
     </Container>
-=======
-      <input placeholder="Enter a Github URL" type="text" value={url} onChange={handleChange} onKeyDown={handleKeyPressed}/>
-    </div>
->>>>>>> Add request calls
   );
 };
 
