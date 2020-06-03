@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { ripOutPaths, generateTree } from './tree';
+import { GithubAPIResponseBody } from './tree/types';
 
 const App: React.FC = () => <Input />;
 
@@ -26,7 +28,7 @@ const Input: React.FC = () => {
     let response = await fetch(`https://api.github.com/repos/${owner}/${repo}/commits/master`).then(res => res.json());
     let treeSHA = response["commit"]["tree"]["sha"];
     let treeRes = await fetch(`https://api.github.com/repos/${owner}/${repo}/git/trees/${treeSHA}?recursive=true`).then(res => res.json());
-    console.log(ripOutPaths(treeRes as GithubAPIResponseBody));
+    generateTree(ripOutPaths(treeRes as GithubAPIResponseBody));
   }
 
   return (
