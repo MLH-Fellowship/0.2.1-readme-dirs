@@ -6,7 +6,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  background: aquamarine;
+  color: #b3c3d3;
+  background: #9aa2b2;
 }
 
 h1, h2, h3, h4, h5, h6 {
