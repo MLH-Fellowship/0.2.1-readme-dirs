@@ -6,11 +6,13 @@ import styled from 'styled-components';
 const LightBGColor = styled.div`
   padding: 0.25rem;
   background: #414959;
+  font-family: 'Source Code Pro', monospace;
 `;
 
 const DarkBGColor = styled.div`
   padding: 0.25rem;
   background: #212428;
+  font-family: 'Source Code Pro', monospace;
 `;
 
 // Components
