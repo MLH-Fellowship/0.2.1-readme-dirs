@@ -22,6 +22,11 @@ const BadgesSection: React.FC<Props> = ({ repoName }: Props) => (
   <Card>
     <div className="row">
       <div className="col">
+        <h2>Badges</h2>
+      </div>
+    </div>
+    <div className="row">
+      <div className="col">
         <BadgeDisplay>
           <a href={`https://badge.fury.io/js/${repoName}`}>
             <img src={`https://badge.fury.io/js/${repoName}.svg`} alt="npm version" height="18" />

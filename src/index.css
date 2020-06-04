@@ -13,10 +13,14 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Montserrat';
   color: white;
+  margin-bottom: 1rem;
 }
 
 h1 {
   font-family: 3rem;
+}
+
+h1, h2 {
   text-align: center;
 }
 

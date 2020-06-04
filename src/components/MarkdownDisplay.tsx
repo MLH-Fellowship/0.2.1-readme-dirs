@@ -13,6 +13,11 @@ const MarkdownDisplay: React.FC<Props> = (props: Props) => (
   <Card>
     <div className="row">
       <div className="col">
+        <h2>Tree</h2>
+      </div>
+    </div>
+    <div className="row">
+      <div className="col">
         {
           props.content.map((line, i) => (
             <MarkdownDisplayLine isOddNumberedLine={i % 2 === 1} content={line} />
