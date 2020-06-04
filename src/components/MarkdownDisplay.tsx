@@ -1,6 +1,7 @@
 import React from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import Card from './reusable/Card';
+import CenteredCol from './reusable/CenteredCol';
 import CustomButton from './reusable/CustomButton';
 import MarkdownDisplayLine from './MarkdownDisplayLine';
 
@@ -10,14 +11,22 @@ interface Props {
 
 const MarkdownDisplay: React.FC<Props> = (props: Props) => (
   <Card>
-    {
-      props.content.map((line, i) => (
-        <MarkdownDisplayLine isOddNumberedLine={i % 2 === 1} content={line} />
-      ))
-    }
-    <CopyToClipboard text={props.content.join('\n')}>
-      <CustomButton type="submit" value="Copy to Clipboard" />
-    </CopyToClipboard>
+    <div className="row">
+      <div className="col">
+        {
+          props.content.map((line, i) => (
+            <MarkdownDisplayLine isOddNumberedLine={i % 2 === 1} content={line} />
+          ))
+        }
+      </div>
+    </div>
+    <div className="row">
+      <CenteredCol className="col">
+        <CopyToClipboard text={props.content.join('\n')}>
+          <CustomButton type="submit" value="Copy to Clipboard" />
+        </CopyToClipboard>
+      </CenteredCol>
+    </div>
   </Card>
 );
 
