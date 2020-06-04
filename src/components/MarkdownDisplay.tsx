@@ -1,19 +1,8 @@
 import React from 'react';
-import styled from 'styled-components';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
+import Card from './reusable/Card';
 import CustomButton from './reusable/CustomButton';
 import MarkdownDisplayLine from './MarkdownDisplayLine';
-
-// Styles
-
-const Card = styled.div`
-  width: 100%;
-  padding: 2rem;
-  background: #212428;
-  color: white;
-`;
-
-// Components
 
 interface Props {
   content: string[];

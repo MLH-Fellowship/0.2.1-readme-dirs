@@ -19,3 +19,25 @@ h1 {
   font-family: 3rem;
   text-align: center;
 }
+
+/* Grid-based Styles */
+
+@media (min-width: 768px) {
+  .container-small {
+      width: 500px;
+  }
+} 
+@media (min-width: 992px) {
+  .container-small {
+      width: 650px;
+  }
+} 
+@media (min-width: 1200px) {
+  .container-small {
+      width: 800px;
+  }
+}
+
+.container-small {
+  max-width: 100%;
+}

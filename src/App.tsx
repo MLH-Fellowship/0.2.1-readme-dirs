@@ -36,7 +36,7 @@ const App: React.FC = () => {
     }
   }
   return (
-    <div className="container">
+    <div className="container container-small">
       <URLBox value={url} onChange={handleURLChange} onClick={handleGoButtonPress} />
       <BadgesSection repoName={repoName} />
       <MarkdownDisplay content={markdownDisplayContent} />
