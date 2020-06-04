@@ -1,26 +1,20 @@
 import React from 'react';
 import styled from 'styled-components';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
+import Card from './reusable/Card';
 import CustomButton from './reusable/CustomButton';
 import { repoToMarkDownBadge } from '../utils/repoToBadge';
+
 // Styles
 
 const BadgeDisplay = styled.div`
   width: 100%;
 `;
 
-const Card = styled.div`
-  width: 100%;
-  padding: 2rem;
-  background: #212428;
-  color: white;
-  margin: 25px 0;
-`;
-
 // Components
 
 interface Props {
-    repoName: string;
+  repoName: string;
 }
 
 const BadgesSection: React.FC<Props> = ({ repoName }: Props) => (

@@ -39,7 +39,6 @@ const App: React.FC = () => {
     <div className="container">
       <URLBox value={url} onChange={handleURLChange} onClick={handleGoButtonPress} />
       <BadgesSection repoName={repoName} />
-      {/* <input placeholder="Enter a Github URL" type="text" value={url} onChange={handleURLChange} onKeyDown={handleKeyPressed} /> */}
       <MarkdownDisplay content={markdownDisplayContent} />
     </div>
   );
